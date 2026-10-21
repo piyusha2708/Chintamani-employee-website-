@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Employee Dashboard | Chintamani Enterprises</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+
+<body class="dashboard-body">
+
+
+<!-- ========================= -->
+<!-- HEADER -->
+<!-- ========================= -->
+
+<header class="top-header">
+
+
+    <div class="header-brand">
+
+        <img
+            src="logo.png"
+            alt="Chintamani Enterprises"
+        >
+
+
+        <div>
+
+            <h2>
+                CHINTAMANI ENTERPRISES
+            </h2>
+
+            <p>
+                Employee Field Service
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+    <button
+        class="logout-button"
+        onclick="logout()"
+    >
+        Logout
+    </button>
+
+
+</header>
+
+
+
+<!-- ========================= -->
+<!-- MAIN -->
+<!-- ========================= -->
+
+<main class="dashboard-container">
+
+
+    <!-- WELCOME -->
+
+    <section class="welcome-section">
+
+
+        <div>
+
+            <span class="section-label">
+                FIELD DASHBOARD
+            </span>
+
+
+            <h1>
+
+                Welcome,
+                <span id="employeeName">
+                    Employee
+                </span>
+
+            </h1>
+
+
+            <p>
+                Manage your assigned CCTV service jobs and field activities.
+            </p>
+
+        </div>
+
+
+
+        <div class="employee-avatar">
+            👷
+        </div>
+
+
+    </section>
+
+
+
+    <!-- ========================= -->
+    <!-- QUICK STATISTICS -->
+    <!-- ========================= -->
+
+    <section class="stats-grid">
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+                📋
+            </div>
+
+
+            <div>
+
+                <strong id="assignedCount">
+                    0
+                </strong>
+
+                <span>
+                    Assigned Jobs
+                </span>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+                🔧
+            </div>
+
+
+            <div>
+
+                <strong id="workingCount">
+                    0
+                </strong>
+
+                <span>
+                    In Progress
+                </span>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+                ✓
+            </div>
+
+
+            <div>
+
+                <strong id="completedCount">
+                    0
+                </strong>
+
+                <span>
+                    Completed
+                </span>
+
+            </div>
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- ========================= -->
+    <!-- QUICK ACTIONS -->
+    <!-- ========================= -->
+
+    <section class="admin-card">
+
+
+        <div class="card-heading">
+
+            <div>
+
+                <span class="section-label">
+                    QUICK ACCESS
+                </span>
+
+                <h2>
+                    Field Services
+                </h2>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="quick-actions">
+
+
+            <a
+                href="employee-jobs.html"
+                class="quick-action-card"
+            >
+
+                <div class="quick-action-icon">
+                    📋
+                </div>
+
+                <div>
+
+                    <strong>
+                        My Jobs
+                    </strong>
+
+                    <span>
+                        View assigned service jobs
+                    </span>
+
+                </div>
+
+                <b>
+                    →
+                </b>
+
+            </a>
+
+
+
+            <a
+                href="employee-attendance.html"
+                class="quick-action-card"
+            >
+
+                <div class="quick-action-icon">
+                    🕐
+                </div>
+
+                <div>
+
+                    <strong>
+                        Attendance
+                    </strong>
+
+                    <span>
+                        Check in and view attendance
+                    </span>
+
+                </div>
+
+                <b>
+                    →
+                </b>
+
+            </a>
+
+
+
+            <a
+                href="employee-profile.html"
+                class="quick-action-card"
+            >
+
+                <div class="quick-action-icon">
+                    👤
+                </div>
+
+                <div>
+
+                    <strong>
+                        My Profile
+                    </strong>
+
+                    <span>
+                        View your employee details
+                    </span>
+
+                </div>
+
+                <b>
+                    →
+                </b>
+
+            </a>
+
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- ========================= -->
+    <!-- RECENT JOBS -->
+    <!-- ========================= -->
+
+    <section>
+
+
+        <div class="section-heading">
+
+
+            <div>
+
+                <span class="section-label">
+                    SERVICE WORK
+                </span>
+
+                <h2>
+                    Recent Jobs
+                </h2>
+
+            </div>
+
+
+            <a
+                href="employee-jobs.html"
+                class="text-link"
+            >
+                View All →
+            </a>
+
+
+        </div>
+
+
+
+        <div id="employeeJobs">
+
+
+            <div class="empty-card">
+
+                <div class="empty-icon">
+                    📋
+                </div>
+
+
+                <h3>
+                    Loading jobs...
+                </h3>
+
+
+                <p>
+                    Please wait while your assigned jobs are loaded.
+                </p>
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- ========================= -->
+    <!-- PROFILE PREVIEW -->
+    <!-- ========================= -->
+
+    <section class="profile-section">
+
+
+        <div class="section-heading">
+
+
+            <div>
+
+                <span class="section-label">
+                    ACCOUNT
+                </span>
+
+                <h2>
+                    My Profile
+                </h2>
+
+            </div>
+
+
+            <a
+                href="employee-profile.html"
+                class="text-link"
+            >
+                View Profile →
+            </a>
+
+
+        </div>
+
+
+
+        <div class="profile-grid">
+
+
+            <div>
+
+                <span>
+                    Name
+                </span>
+
+                <strong id="profileName">
+                    —
+                </strong>
+
+            </div>
+
+
+
+            <div>
+
+                <span>
+                    Email
+                </span>
+
+                <strong id="profileEmail">
+                    —
+                </strong>
+
+            </div>
+
+
+
+            <div>
+
+                <span>
+                    Employee ID
+                </span>
+
+                <strong id="profileEmployeeId">
+                    —
+                </strong>
+
+            </div>
+
+
+
+            <div>
+
+                <span>
+                    Role
+                </span>
+
+                <strong id="profileRole">
+                    Employee
+                </strong>
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+</main>
+
+
+
+<!-- ========================= -->
+<!-- BOTTOM NAVIGATION -->
+<!-- ========================= -->
+
+<nav class="bottom-nav">
+
+
+    <a
+        href="employee.html"
+        class="bottom-nav-item active"
+    >
+
+        <span>
+            🏠
+        </span>
+
+        <small>
+            Dashboard
+        </small>
+
+    </a>
+
+
+
+    <a
+        href="employee-jobs.html"
+        class="bottom-nav-item"
+    >
+
+        <span>
+            📋
+        </span>
+
+        <small>
+            Jobs
+        </small>
+
+    </a>
+
+
+
+    <a
+        href="employee-attendance.html"
+        class="bottom-nav-item"
+    >
+
+        <span>
+            🕐
+        </span>
+
+        <small>
+            Attendance
+        </small>
+
+    </a>
+
+
+
+    <a
+        href="employee-profile.html"
+        class="bottom-nav-item"
+    >
+
+        <span>
+            👤
+        </span>
+
+        <small>
+            Profile
+        </small>
+
+    </a>
+
+
+</nav>
+
+
+
+<script src="app.js"></script>
+
+</body>
+
+</html>

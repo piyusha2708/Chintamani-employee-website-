@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>My Profile | Chintamani Enterprises</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body class="dashboard-body">
+
+
+<!-- ===================================================== -->
+<!-- HEADER -->
+<!-- ===================================================== -->
+
+<header class="top-header">
+
+    <div class="header-brand">
+
+        <img
+            src="logo.png"
+            alt="Chintamani Enterprises"
+        >
+
+        <div>
+
+            <h2>
+                CHINTAMANI ENTERPRISES
+            </h2>
+
+            <p>
+                Employee Field Service
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <button
+        class="logout-button"
+        onclick="logout()"
+    >
+        Logout
+    </button>
+
+</header>
+
+
+
+<!-- ===================================================== -->
+<!-- MAIN -->
+<!-- ===================================================== -->
+
+<main class="dashboard-container">
+
+
+    <!-- ================================================= -->
+    <!-- PAGE HEADER -->
+    <!-- ================================================= -->
+
+    <section class="welcome-section">
+
+        <div>
+
+            <span class="section-label">
+                ACCOUNT
+            </span>
+
+            <h1>
+                My Profile
+            </h1>
+
+            <p>
+                View your employee information.
+            </p>
+
+        </div>
+
+
+        <div class="employee-avatar">
+            👤
+        </div>
+
+    </section>
+
+
+
+    <!-- ================================================= -->
+    <!-- PROFILE -->
+    <!-- ================================================= -->
+
+    <section class="admin-card">
+
+        <span class="section-label">
+            EMPLOYEE INFORMATION
+        </span>
+
+        <h2>
+            Personal Details
+        </h2>
+
+
+        <div class="profile-grid">
+
+
+            <!-- NAME -->
+
+            <div>
+
+                <span>
+                    Name
+                </span>
+
+                <strong id="profileName">
+                    Loading...
+                </strong>
+
+            </div>
+
+
+
+            <!-- EMPLOYEE ID -->
+
+            <div>
+
+                <span>
+                    Employee ID
+                </span>
+
+                <strong id="profileEmployeeId">
+                    Loading...
+                </strong>
+
+            </div>
+
+
+
+            <!-- EMAIL -->
+
+            <div>
+
+                <span>
+                    Email
+                </span>
+
+                <strong id="profileEmail">
+                    Loading...
+                </strong>
+
+            </div>
+
+
+
+            <!-- PHONE -->
+
+            <div>
+
+                <span>
+                    Phone
+                </span>
+
+                <strong id="profilePhone">
+                    Loading...
+                </strong>
+
+            </div>
+
+
+
+            <!-- DEPARTMENT -->
+
+            <div>
+
+                <span>
+                    Department
+                </span>
+
+                <strong id="profileDepartment">
+                    Loading...
+                </strong>
+
+            </div>
+
+
+
+            <!-- ROLE -->
+
+            <div>
+
+                <span>
+                    Role
+                </span>
+
+                <strong id="profileRole">
+                    Loading...
+                </strong>
+
+            </div>
+
+
+        </div>
+
+
+        <!-- PROFILE MESSAGE -->
+
+        <p
+            id="profileMessage"
+            class="form-message"
+        ></p>
+
+
+    </section>
+
+
+
+    <!-- ================================================= -->
+    <!-- ACCOUNT ACTION -->
+    <!-- ================================================= -->
+
+    <section class="admin-card">
+
+        <span class="section-label">
+            ACCOUNT
+        </span>
+
+        <h2>
+            Account Actions
+        </h2>
+
+
+        <button
+            class="primary-button full-button"
+            onclick="logout()"
+        >
+            LOGOUT
+        </button>
+
+    </section>
+
+
+</main>
+
+
+
+<!-- ===================================================== -->
+<!-- EMPLOYEE NAVIGATION -->
+<!-- ===================================================== -->
+
+<nav class="bottom-nav">
+
+
+    <a
+        href="employee.html"
+        class="bottom-nav-item"
+    >
+
+        <span>
+            🏠
+        </span>
+
+        <small>
+            Dashboard
+        </small>
+
+    </a>
+
+
+
+    <a
+        href="employee-jobs.html"
+        class="bottom-nav-item"
+    >
+
+        <span>
+            📋
+        </span>
+
+        <small>
+            Jobs
+        </small>
+
+    </a>
+
+
+
+    <a
+        href="employee-attendance.html"
+        class="bottom-nav-item"
+    >
+
+        <span>
+            🕐
+        </span>
+
+        <small>
+            Attendance
+        </small>
+
+    </a>
+
+
+
+    <a
+        href="employee-profile.html"
+        class="bottom-nav-item active"
+    >
+
+        <span>
+            👤
+        </span>
+
+        <small>
+            Profile
+        </small>
+
+    </a>
+
+
+</nav>
+
+
+
+<!-- ===================================================== -->
+<!-- MAIN APP JAVASCRIPT -->
+<!-- ===================================================== -->
+
+<script src="app.js"></script>
+
+
+
+<!-- ===================================================== -->
+<!-- PROFILE DATABASE FETCH -->
+<!-- ===================================================== -->
+
+<script>
+
+document.addEventListener(
+    "DOMContentLoaded",
+    async function () {
+
+        console.log(
+            "Employee profile page loaded."
+        );
+
+
+        // -------------------------------------------------
+        // GET LOGGED-IN EMPLOYEE
+        // -------------------------------------------------
+
+        const storedEmployee =
+            localStorage.getItem("employee");
+
+
+        if (
+            !storedEmployee ||
+            storedEmployee === "undefined" ||
+            storedEmployee === "null"
+        ) {
+
+            alert(
+                "Please login first."
+            );
+
+            window.location.href =
+                "index.html";
+
+            return;
+
+        }
+
+
+        let loggedInEmployee;
+
+
+        try {
+
+            loggedInEmployee =
+                JSON.parse(storedEmployee);
+
+        } catch (error) {
+
+            console.error(
+                "Invalid employee session:",
+                error
+            );
+
+            localStorage.removeItem(
+                "employee"
+            );
+
+            localStorage.removeItem(
+                "token"
+            );
+
+            alert(
+                "Your login session is invalid. Please login again."
+            );
+
+            window.location.href =
+                "index.html";
+
+            return;
+
+        }
+
+
+
+        // -------------------------------------------------
+        // GET EMPLOYEE ID
+        // -------------------------------------------------
+
+        const employeeId =
+            loggedInEmployee.employeeId;
+
+
+        if (!employeeId) {
+
+            console.error(
+                "Employee ID not found in login session."
+            );
+
+            alert(
+                "Employee information could not be found. Please login again."
+            );
+
+            localStorage.removeItem(
+                "employee"
+            );
+
+            localStorage.removeItem(
+                "token"
+            );
+
+            window.location.href =
+                "index.html";
+
+            return;
+
+        }
+
+
+
+        console.log(
+            "Fetching employee from MongoDB:",
+            employeeId
+        );
+
+
+
+        // -------------------------------------------------
+        // HTML ELEMENTS
+        // -------------------------------------------------
+
+        const profileName =
+            document.getElementById(
+                "profileName"
+            );
+
+        const profileEmployeeId =
+            document.getElementById(
+                "profileEmployeeId"
+            );
+
+        const profileEmail =
+            document.getElementById(
+                "profileEmail"
+            );
+
+        const profilePhone =
+            document.getElementById(
+                "profilePhone"
+            );
+
+        const profileDepartment =
+            document.getElementById(
+                "profileDepartment"
+            );
+
+        const profileRole =
+            document.getElementById(
+                "profileRole"
+            );
+
+        const profileMessage =
+            document.getElementById(
+                "profileMessage"
+            );
+
+
+
+        // -------------------------------------------------
+        // FETCH FROM MONGODB THROUGH BACKEND
+        // -------------------------------------------------
+
+        try {
+
+            const response =
+                await fetch(
+                    "http://localhost:5000/api/employees/"
+                    + encodeURIComponent(employeeId)
+                );
+
+
+            const data =
+                await response.json();
+
+
+            console.log(
+                "Employee profile response:",
+                data
+            );
+
+
+
+            // -------------------------------------------------
+            // CHECK RESPONSE
+            // -------------------------------------------------
+
+            if (!response.ok) {
+
+                throw new Error(
+                    data.message ||
+                    "Unable to fetch employee details."
+                );
+
+            }
+
+
+
+            if (!data.employee) {
+
+                throw new Error(
+                    "Employee information was not returned by the server."
+                );
+
+            }
+
+
+
+            const employee =
+                data.employee;
+
+
+
+            // -------------------------------------------------
+            // DISPLAY DATABASE INFORMATION
+            // -------------------------------------------------
+
+            if (profileName) {
+
+                profileName.textContent =
+                    employee.name ||
+                    "—";
+
+            }
+
+
+            if (profileEmployeeId) {
+
+                profileEmployeeId.textContent =
+                    employee.employeeId ||
+                    "—";
+
+            }
+
+
+            if (profileEmail) {
+
+                profileEmail.textContent =
+                    employee.email ||
+                    "—";
+
+            }
+
+
+            if (profilePhone) {
+
+                profilePhone.textContent =
+                    employee.phone ||
+                    "—";
+
+            }
+
+
+            if (profileDepartment) {
+
+                profileDepartment.textContent =
+                    employee.department ||
+                    "Field Service";
+
+            }
+
+
+            if (profileRole) {
+
+                const role =
+                    String(
+                        employee.role ||
+                        "employee"
+                    )
+                    .trim()
+                    .toLowerCase();
+
+
+                if (role === "admin") {
+
+                    profileRole.textContent =
+                        "Administrator";
+
+                } else {
+
+                    profileRole.textContent =
+                        "Employee";
+
+                }
+
+            }
+
+
+
+            // -------------------------------------------------
+            // CLEAR ERROR MESSAGE
+            // -------------------------------------------------
+
+            if (profileMessage) {
+
+                profileMessage.textContent =
+                    "";
+
+            }
+
+
+
+            console.log(
+                "Employee profile loaded successfully:",
+                employee
+            );
+
+
+        } catch (error) {
+
+            console.error(
+                "Profile fetch error:",
+                error
+            );
+
+
+            if (profileName) {
+
+                profileName.textContent =
+                    "—";
+
+            }
+
+
+            if (profileEmployeeId) {
+
+                profileEmployeeId.textContent =
+                    employeeId;
+
+            }
+
+
+            if (profileEmail) {
+
+                profileEmail.textContent =
+                    "—";
+
+            }
+
+
+            if (profilePhone) {
+
+                profilePhone.textContent =
+                    "—";
+
+            }
+
+
+            if (profileDepartment) {
+
+                profileDepartment.textContent =
+                    "—";
+
+            }
+
+
+            if (profileRole) {
+
+                profileRole.textContent =
+                    "Employee";
+
+            }
+
+
+            if (profileMessage) {
+
+                profileMessage.textContent =
+                    "Unable to load employee information.";
+
+                profileMessage.style.color =
+                    "#dc3545";
+
+            }
+
+        }
+
+    }
+
+);
+
+</script>
+
+
+</body>
+
+</html>

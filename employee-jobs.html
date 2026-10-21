@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Jobs | Chintamani Enterprises</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="dashboard-body">
+
+<header class="top-header">
+
+    <div class="header-brand">
+
+        <img src="logo.png" alt="Chintamani Enterprises">
+
+        <div>
+            <h2>CHINTAMANI ENTERPRISES</h2>
+            <p>Employee Field Service</p>
+        </div>
+
+    </div>
+
+    <button class="logout-button" onclick="logout()">
+        Logout
+    </button>
+
+</header>
+
+
+<main class="dashboard-container">
+
+    <!-- PAGE HEADER -->
+
+    <section class="welcome-section">
+
+        <div>
+
+            <span class="section-label">
+                SERVICE OPERATIONS
+            </span>
+
+            <h1>
+                My Jobs
+            </h1>
+
+            <p>
+                View and manage your assigned CCTV service jobs.
+            </p>
+
+        </div>
+
+        <div class="employee-avatar">
+            📋
+        </div>
+
+    </section>
+
+
+    <!-- JOB STATISTICS -->
+
+    <section class="stats-grid">
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+                📋
+            </div>
+
+            <div>
+
+                <strong id="assignedCount">
+                    0
+                </strong>
+
+                <span>
+                    Assigned Jobs
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+                🔧
+            </div>
+
+            <div>
+
+                <strong id="workingCount">
+                    0
+                </strong>
+
+                <span>
+                    In Progress
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+                ✓
+            </div>
+
+            <div>
+
+                <strong id="completedCount">
+                    0
+                </strong>
+
+                <span>
+                    Completed
+                </span>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- JOB LIST -->
+
+    <section class="admin-card">
+
+        <div class="card-heading">
+
+            <div>
+
+                <span class="section-label">
+                    ASSIGNED WORK
+                </span>
+
+                <h2>
+                    Service Jobs
+                </h2>
+
+            </div>
+
+        </div>
+
+
+        <div id="employeeJobs">
+
+            <div class="empty-card">
+
+                <div class="empty-icon">
+                    📋
+                </div>
+
+                <h3>
+                    Loading jobs...
+                </h3>
+
+                <p>
+                    Please wait while your assigned jobs are loaded.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<!-- NAVIGATION -->
+
+<nav class="bottom-nav">
+
+    <a href="employee.html" class="bottom-nav-item">
+
+        <span>🏠</span>
+
+        <small>
+            Dashboard
+        </small>
+
+    </a>
+
+
+    <a href="employee-jobs.html" class="bottom-nav-item active">
+
+        <span>📋</span>
+
+        <small>
+            Jobs
+        </small>
+
+    </a>
+
+
+    <a href="employee-attendance.html" class="bottom-nav-item">
+
+        <span>🕐</span>
+
+        <small>
+            Attendance
+        </small>
+
+    </a>
+
+
+    <a href="employee-profile.html" class="bottom-nav-item">
+
+        <span>👤</span>
+
+        <small>
+            Profile
+        </small>
+
+    </a>
+
+</nav>
+
+
+<script src="app.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Admin Dashboard | Chintamani Enterprises</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+
+<body class="dashboard-body">
+
+
+<!-- ========================= -->
+<!-- HEADER -->
+<!-- ========================= -->
+
+<header class="top-header">
+
+
+    <div class="header-brand">
+
+        <img
+            src="logo.png"
+            alt="Chintamani Enterprises"
+        >
+
+
+        <div>
+
+            <h2>
+                CHINTAMANI ENTERPRISES
+            </h2>
+
+            <p>
+                Owner / Admin Control Room
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+    <button
+        class="logout-button"
+        onclick="logout()"
+    >
+        Logout
+    </button>
+
+
+</header>
+
+
+
+<!-- ========================= -->
+<!-- MAIN -->
+<!-- ========================= -->
+
+<main class="dashboard-container">
+
+
+    <!-- WELCOME -->
+
+    <section class="welcome-section">
+
+
+        <div>
+
+            <span class="section-label">
+                CONTROL ROOM
+            </span>
+
+
+            <h1>
+                ADMIN DASHBOARD
+            </h1>
+
+
+            <p>
+                Manage CCTV service operations and field employees.
+            </p>
+
+        </div>
+
+
+        <div class="admin-avatar">
+            🛡️
+        </div>
+
+
+    </section>
+
+
+
+    <!-- ========================= -->
+    <!-- ADMIN STATISTICS -->
+    <!-- ========================= -->
+
+    <section class="stats-grid">
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+                👷
+            </div>
+
+
+            <div>
+
+                <strong id="teamCount">
+                    0
+                </strong>
+
+                <span>
+                    Team Members
+                </span>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+                📋
+            </div>
+
+
+            <div>
+
+                <strong id="totalJobs">
+                    0
+                </strong>
+
+                <span>
+                    Total Jobs
+                </span>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+                🔧
+            </div>
+
+
+            <div>
+
+                <strong id="activeJobs">
+                    0
+                </strong>
+
+                <span>
+                    Active Jobs
+                </span>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+                ✓
+            </div>
+
+
+            <div>
+
+                <strong id="completedJobs">
+                    0
+                </strong>
+
+                <span>
+                    Completed
+                </span>
+
+            </div>
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- ========================= -->
+    <!-- QUICK ACTIONS -->
+    <!-- ========================= -->
+
+    <section class="admin-card">
+
+
+        <div class="card-heading">
+
+
+            <div>
+
+                <span class="section-label">
+                    MANAGEMENT
+                </span>
+
+                <h2>
+                    Quick Access
+                </h2>
+
+            </div>
+
+
+        </div>
+
+
+
+        <div class="quick-actions">
+
+
+            <!-- JOBS -->
+
+            <a
+                href="admin-jobs.html"
+                class="quick-action-card"
+            >
+
+                <div class="quick-action-icon">
+                    📋
+                </div>
+
+
+                <div>
+
+                    <strong>
+                        Service Jobs
+                    </strong>
+
+                    <span>
+                        Create and manage CCTV jobs
+                    </span>
+
+                </div>
+
+
+                <b>
+                    →
+                </b>
+
+            </a>
+
+
+
+            <!-- ATTENDANCE -->
+
+            <a
+                href="admin-attendance.html"
+                class="quick-action-card"
+            >
+
+                <div class="quick-action-icon">
+                    🕐
+                </div>
+
+
+                <div>
+
+                    <strong>
+                        Attendance
+                    </strong>
+
+                    <span>
+                        Monitor employee attendance
+                    </span>
+
+                </div>
+
+
+                <b>
+                    →
+                </b>
+
+            </a>
+
+
+
+            <!-- EMPLOYEES -->
+
+            <a
+                href="admin-employees.html"
+                class="quick-action-card"
+            >
+
+                <div class="quick-action-icon">
+                    👷
+                </div>
+
+
+                <div>
+
+                    <strong>
+                        Employees
+                    </strong>
+
+                    <span>
+                        Manage field-service staff
+                    </span>
+
+                </div>
+
+
+                <b>
+                    →
+                </b>
+
+            </a>
+
+
+
+            <!-- PROFILE -->
+
+            <a
+                href="admin-profile.html"
+                class="quick-action-card"
+            >
+
+                <div class="quick-action-icon">
+                    👤
+                </div>
+
+
+                <div>
+
+                    <strong>
+                        Admin Profile
+                    </strong>
+
+                    <span>
+                        View administrator account
+                    </span>
+
+                </div>
+
+
+                <b>
+                    →
+                </b>
+
+            </a>
+
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- ========================= -->
+    <!-- RECENT JOBS -->
+    <!-- ========================= -->
+
+    <section>
+
+
+        <div class="section-heading">
+
+
+            <div>
+
+                <span class="section-label">
+                    OPERATIONS
+                </span>
+
+                <h2>
+                    Recent Service Jobs
+                </h2>
+
+            </div>
+
+
+            <a
+                href="admin-jobs.html"
+                class="text-link"
+            >
+                View All →
+            </a>
+
+
+        </div>
+
+
+
+        <div id="adminJobs">
+
+
+            <div class="empty-card">
+
+                <div class="empty-icon">
+                    📋
+                </div>
+
+
+                <h3>
+                    Loading jobs...
+                </h3>
+
+
+                <p>
+                    Please wait while service jobs are loaded.
+                </p>
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- ========================= -->
+    <!-- TEAM PREVIEW -->
+    <!-- ========================= -->
+
+    <section>
+
+
+        <div class="section-heading">
+
+
+            <div>
+
+                <span class="section-label">
+                    STAFF
+                </span>
+
+                <h2>
+                    Team Members
+                </h2>
+
+            </div>
+
+
+            <a
+                href="admin-employees.html"
+                class="text-link"
+            >
+                View Team →
+            </a>
+
+
+        </div>
+
+
+
+        <div id="teamMembers">
+
+
+            <div class="empty-card">
+
+                <div class="empty-icon">
+                    👷
+                </div>
+
+
+                <h3>
+                    Loading team...
+                </h3>
+
+
+                <p>
+                    Please wait while employee data is loaded.
+                </p>
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+</main>
+
+
+
+<!-- ========================= -->
+<!-- ADMIN NAVIGATION -->
+<!-- ========================= -->
+
+<nav class="bottom-nav">
+
+
+    <a
+        href="admin.html"
+        class="bottom-nav-item active"
+    >
+
+        <span>
+            🏠
+        </span>
+
+        <small>
+            Dashboard
+        </small>
+
+    </a>
+
+
+
+    <a
+        href="admin-jobs.html"
+        class="bottom-nav-item"
+    >
+
+        <span>
+            📋
+        </span>
+
+        <small>
+            Jobs
+        </small>
+
+    </a>
+
+
+
+    <a
+        href="admin-attendance.html"
+        class="bottom-nav-item"
+    >
+
+        <span>
+            🕐
+        </span>
+
+        <small>
+            Attendance
+        </small>
+
+    </a>
+
+
+
+    <a
+        href="admin-employees.html"
+        class="bottom-nav-item"
+    >
+
+        <span>
+            👷
+        </span>
+
+        <small>
+            Employees
+        </small>
+
+    </a>
+
+
+
+    <a
+        href="admin-profile.html"
+        class="bottom-nav-item"
+    >
+
+        <span>
+            👤
+        </span>
+
+        <small>
+            Profile
+        </small>
+
+    </a>
+
+
+</nav>
+
+
+
+<script src="app.js"></script>
+
+</body>
+
+</html>

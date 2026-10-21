@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Manage Jobs | Chintamani Enterprises</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body class="dashboard-body">
+
+
+<header class="top-header">
+
+
+    <div class="header-brand">
+
+        <img src="logo.png" alt="Chintamani Enterprises">
+
+        <div>
+
+            <h2>
+                CHINTAMANI ENTERPRISES
+            </h2>
+
+            <p>
+                Owner / Admin Control Room
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <button
+        class="logout-button"
+        onclick="logout()"
+    >
+        Logout
+    </button>
+
+
+</header>
+
+
+
+<main class="dashboard-container">
+
+
+    <!-- HEADER -->
+
+    <section class="welcome-section">
+
+        <div>
+
+            <span class="section-label">
+                FIELD OPERATIONS
+            </span>
+
+            <h1>
+                Service Jobs
+            </h1>
+
+            <p>
+                Create, assign and manage CCTV service jobs.
+            </p>
+
+        </div>
+
+
+        <div class="admin-avatar">
+            📋
+        </div>
+
+    </section>
+
+
+
+    <!-- CREATE JOB -->
+
+    <section class="admin-card">
+
+
+        <div class="card-heading">
+
+            <div>
+
+                <span class="section-label">
+                    FIELD OPERATIONS
+                </span>
+
+                <h2>
+                    NEW CCTV JOB
+                </h2>
+
+            </div>
+
+        </div>
+
+
+
+        <form id="jobForm">
+
+
+            <div class="form-group">
+
+                <label>
+                    Job Title
+                </label>
+
+                <input
+                    type="text"
+                    id="jobTitle"
+                    placeholder="Repair 4-camera DVR — no recording"
+                    required
+                >
+
+            </div>
+
+
+
+            <div class="two-column">
+
+
+                <div class="form-group">
+
+                    <label>
+                        Customer
+                    </label>
+
+                    <input
+                        type="text"
+                        id="customer"
+                        placeholder="Customer name"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Customer Phone
+                    </label>
+
+                    <input
+                        type="tel"
+                        id="customerPhone"
+                        placeholder="Phone number"
+                    >
+
+                </div>
+
+
+            </div>
+
+
+
+            <div class="form-group">
+
+                <label>
+                    Site Address
+                </label>
+
+                <input
+                    type="text"
+                    id="siteAddress"
+                    placeholder="Complete service location"
+                    required
+                >
+
+            </div>
+
+
+
+            <div class="form-group">
+
+                <label>
+                    Work Details
+                </label>
+
+                <textarea
+                    id="workDetails"
+                    rows="5"
+                    placeholder="Describe the CCTV problem and required work..."
+                ></textarea>
+
+            </div>
+
+
+
+            <div class="three-column">
+
+
+                <div class="form-group">
+
+                    <label>
+                        Technician
+                    </label>
+
+                    <select id="technician">
+
+                        <option value="">
+                            Select technician
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+
+                <div class="form-group">
+
+                    <label>
+                        Priority
+                    </label>
+
+                    <select id="priority">
+
+                        <option value="low">
+                            Low
+                        </option>
+
+                        <option value="medium" selected>
+                            Medium
+                        </option>
+
+                        <option value="high">
+                            High
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+
+                <div class="form-group">
+
+                    <label>
+                        Scheduled Date
+                    </label>
+
+                    <input
+                        type="date"
+                        id="scheduledDate"
+                    >
+
+                </div>
+
+
+            </div>
+
+
+
+            <p
+                id="jobMessage"
+                class="form-message"
+            ></p>
+
+
+
+            <button
+                type="submit"
+                class="primary-button full-button"
+            >
+                CREATE CCTV JOB
+            </button>
+
+
+        </form>
+
+    </section>
+
+
+
+    <!-- ALL JOBS -->
+
+    <section class="admin-card">
+
+
+        <div class="card-heading">
+
+            <div>
+
+                <span class="section-label">
+                    OPERATIONS
+                </span>
+
+                <h2>
+                    SERVICE JOBS
+                </h2>
+
+            </div>
+
+        </div>
+
+
+
+        <div id="adminJobs">
+
+            <div class="empty-card">
+
+                <div class="empty-icon">
+                    📋
+                </div>
+
+                <h3>
+                    Loading jobs...
+                </h3>
+
+                <p>
+                    Please wait while jobs are loaded.
+                </p>
+
+            </div>
+
+        </div>
+
+
+    </section>
+
+
+</main>
+
+
+
+<!-- ADMIN NAVIGATION -->
+
+<nav class="bottom-nav">
+
+
+    <a href="admin.html"
+       class="bottom-nav-item">
+
+        <span>🏠</span>
+
+        <small>
+            Dashboard
+        </small>
+
+    </a>
+
+
+    <a href="admin-jobs.html"
+       class="bottom-nav-item active">
+
+        <span>📋</span>
+
+        <small>
+            Jobs
+        </small>
+
+    </a>
+
+
+    <a href="admin-attendance.html"
+       class="bottom-nav-item">
+
+        <span>🕐</span>
+
+        <small>
+            Attendance
+        </small>
+
+    </a>
+
+
+    <a href="admin-employees.html"
+       class="bottom-nav-item">
+
+        <span>👷</span>
+
+        <small>
+            Employees
+        </small>
+
+    </a>
+
+
+    <a href="admin-profile.html"
+       class="bottom-nav-item">
+
+        <span>👤</span>
+
+        <small>
+            Profile
+        </small>
+
+    </a>
+
+
+</nav>
+
+
+
+<script src="app.js"></script>
+
+</body>
+
+</html>

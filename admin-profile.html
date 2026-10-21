@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Profile | Chintamani Enterprises</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body class="dashboard-body">
+
+
+<header class="top-header">
+
+
+    <div class="header-brand">
+
+        <img src="logo.png" alt="Chintamani Enterprises">
+
+        <div>
+
+            <h2>
+                CHINTAMANI ENTERPRISES
+            </h2>
+
+            <p>
+                Owner / Admin Control Room
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <button
+        class="logout-button"
+        onclick="logout()"
+    >
+        Logout
+    </button>
+
+
+</header>
+
+
+
+<main class="dashboard-container">
+
+
+    <!-- HEADER -->
+
+    <section class="welcome-section">
+
+        <div>
+
+            <span class="section-label">
+                ADMIN ACCOUNT
+            </span>
+
+            <h1>
+                My Profile
+            </h1>
+
+            <p>
+                View your administrator account information.
+            </p>
+
+        </div>
+
+
+        <div class="admin-avatar">
+            🛡️
+        </div>
+
+    </section>
+
+
+
+    <!-- ADMIN INFORMATION -->
+
+    <section class="admin-card">
+
+
+        <span class="section-label">
+            ACCOUNT INFORMATION
+        </span>
+
+
+        <h2>
+            Administrator Details
+        </h2>
+
+
+
+        <div class="profile-grid">
+
+
+            <div>
+
+                <span>
+                    Name
+                </span>
+
+                <strong id="profileName">
+                    Arjun Chintamani
+                </strong>
+
+            </div>
+
+
+
+            <div>
+
+                <span>
+                    Employee ID
+                </span>
+
+                <strong id="profileEmployeeId">
+                    ADMIN001
+                </strong>
+
+            </div>
+
+
+
+            <div>
+
+                <span>
+                    Email
+                </span>
+
+                <strong id="profileEmail">
+                    admin@chintamani.com
+                </strong>
+
+            </div>
+
+
+
+            <div>
+
+                <span>
+                    Phone
+                </span>
+
+                <strong id="profilePhone">
+                    8169828158
+                </strong>
+
+            </div>
+
+
+
+            <div>
+
+                <span>
+                    Department
+                </span>
+
+                <strong id="profileDepartment">
+                    Administration
+                </strong>
+
+            </div>
+
+
+
+            <div>
+
+                <span>
+                    Role
+                </span>
+
+                <strong id="profileRole">
+                    Administrator
+                </strong>
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- SECURITY -->
+
+    <section class="admin-card">
+
+
+        <span class="section-label">
+            SECURITY
+        </span>
+
+
+        <h2>
+            Account Actions
+        </h2>
+
+
+        <button
+            class="primary-button full-button"
+            onclick="logout()"
+        >
+            LOGOUT
+        </button>
+
+
+    </section>
+
+
+</main>
+
+
+
+<!-- NAVIGATION -->
+
+<nav class="bottom-nav">
+
+
+    <a href="admin.html"
+       class="bottom-nav-item">
+
+        <span>🏠</span>
+
+        <small>
+            Dashboard
+        </small>
+
+    </a>
+
+
+    <a href="admin-jobs.html"
+       class="bottom-nav-item">
+
+        <span>📋</span>
+
+        <small>
+            Jobs
+        </small>
+
+    </a>
+
+
+    <a href="admin-attendance.html"
+       class="bottom-nav-item">
+
+        <span>🕐</span>
+
+        <small>
+            Attendance
+        </small>
+
+    </a>
+
+
+    <a href="admin-employees.html"
+       class="bottom-nav-item">
+
+        <span>👷</span>
+
+        <small>
+            Employees
+        </small>
+
+    </a>
+
+
+    <a href="admin-profile.html"
+       class="bottom-nav-item active">
+
+        <span>👤</span>
+
+        <small>
+            Profile
+        </small>
+
+    </a>
+
+
+</nav>
+
+
+
+<script src="app.js"></script>
+
+</body>
+
+</html>
